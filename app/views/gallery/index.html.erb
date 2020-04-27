@@ -1,0 +1,18 @@
+<div class="cover">
+  <% first = Article.first %>
+  <h1><%=first.title%></h1>
+  <h2><%=first.date%></h2>
+  <p><%=first.about%></p>
+
+  <%= link_to "Подробнее", article_path(first) %>
+</div>
+
+<div class="grid">
+  <% Article.all.sample(5).each do |ar| %>
+    <%= link_to article_path(ar) do %>
+      <h1><%=ar.title%></h1>
+      <h2><%=ar.date%></h2>
+      <p><%=ar.about%></p>
+    <% end %>
+  <% end %>
+</div>
